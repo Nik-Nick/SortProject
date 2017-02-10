@@ -1,0 +1,7 @@
+c:\users\nikom\documents\visual studio 2015\Projects\SortProject\SortProject\bin\Debug\SortProject.exe.config
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortProject\bin\Debug\SortProject.exe
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortProject\bin\Debug\SortProject.pdb
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortProject\obj\Debug\SortProject.exe
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortProject\obj\Debug\SortProject.pdb
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortProject\bin\Debug\Autofac.dll
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortProject\bin\Debug\Autofac.xml

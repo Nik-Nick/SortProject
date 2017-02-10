@@ -1,0 +1,11 @@
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\bin\Debug\SortTestProject.dll
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\bin\Debug\SortTestProject.pdb
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\bin\Debug\Autofac.dll
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\bin\Debug\SortProject.exe
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\bin\Debug\SortProject.pdb
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\bin\Debug\Autofac.xml
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\obj\Debug\SortTestProject.csprojResolveAssemblyReference.cache
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\obj\Debug\SortTestProject.dll
+c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\obj\Debug\SortTestProject.pdb
