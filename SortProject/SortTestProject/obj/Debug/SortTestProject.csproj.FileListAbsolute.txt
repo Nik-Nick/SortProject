@@ -9,3 +9,12 @@ c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject
 c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\obj\Debug\SortTestProject.csprojResolveAssemblyReference.cache
 c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\obj\Debug\SortTestProject.dll
 c:\Users\Nikom\Documents\Visual Studio 2015\Projects\SortProject\SortTestProject\obj\Debug\SortTestProject.pdb
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\bin\Debug\SortTestProject.dll
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\bin\Debug\SortTestProject.pdb
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\bin\Debug\Autofac.dll
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\bin\Debug\SortProject.exe
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\bin\Debug\SortProject.pdb
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\bin\Debug\Autofac.xml
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\obj\Debug\SortTestProject.csprojResolveAssemblyReference.cache
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\obj\Debug\SortTestProject.dll
+C:\Users\Nikom\Documents\SortProject\SortProject\SortTestProject\obj\Debug\SortTestProject.pdb

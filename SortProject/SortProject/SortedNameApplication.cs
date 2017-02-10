@@ -11,9 +11,12 @@ namespace SortProject
 {
     public class SortedNameApplication
     {
-        private Output _output;
-        private NameService _nameService;
-        private FileService _fileService;
+
+        private IOutput _output { get; set; }
+
+        private INameService _nameService { get; set; }
+
+        private IFileService _fileService { get; set; }
 
 
         private static IContainer Container { get; set; }
@@ -25,10 +28,14 @@ namespace SortProject
             builder.RegisterType<FileService>().As<IFileService>();
             Container = builder.Build();
 
-            _output = new Output();
-            _nameService = new NameService();
-            _fileService = new FileService(_output, _nameService);
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                _output = scope.Resolve<IOutput>();
+                _nameService = scope.Resolve<INameService>();
+                _fileService = scope.Resolve<IFileService>();
+            }
         }
+
 
         public void Excecute()
         {

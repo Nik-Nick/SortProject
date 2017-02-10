@@ -16,6 +16,10 @@ namespace SortProject.Implementations
             _nameService = nameService;
         }
 
+        /// <summary>
+        /// Read file from user input
+        /// </summary>
+        /// <returns></returns>
         public TextFile GetTextFileFromUser()
         {
             bool isFound = false;
@@ -58,9 +62,17 @@ namespace SortProject.Implementations
             return textFile;
         }
 
-
+        /// <summary>
+        /// Create sorted file from unsorted file
+        /// </summary>
+        /// <param name="textFile">unsorted file</param>
+        /// <returns>sorted file</returns>
         public TextFile CreateSortedTextFile(TextFile textFile)
         {
+            if(textFile.DataRows == null)
+            {
+                return textFile;
+            }
             var nameList = _nameService.CreateNameList(textFile.DataRows);
             nameList = _nameService.SortedNameList(nameList);
             var dataRows = new List<string>();
@@ -76,6 +88,11 @@ namespace SortProject.Implementations
             };
         }
 
+        /// <summary>
+        /// Create text file to givent file path
+        /// </summary>
+        /// <param name="dataRows">text lines</param>
+        /// <param name="savePath">file path + file name</param>
         public void WriteTextFile(List<string> dataRows, string savePath)
         {
             var writer = File.CreateText(savePath);
@@ -86,6 +103,13 @@ namespace SortProject.Implementations
             writer.Close();
         }
 
+        /// <summary>
+        /// Create non exsiting file name
+        /// </summary>
+        /// <param name="fileName">original name</param>
+        /// <param name="filePath">file path</param>
+        /// <param name="fileType">file type</param>
+        /// <returns>new name</returns>
         public string CreateNonExistingFileName(string fileName, string filePath, string fileType)
         {
             var newName = fileName;
@@ -99,7 +123,10 @@ namespace SortProject.Implementations
             return newName;
         }
 
-
+        /// <summary>
+        /// Write data to console
+        /// </summary>
+        /// <param name="textFile">text file</param>
         public void OutputDataFromFile(TextFile textFile)
         {
             foreach(var line in textFile.DataRows)

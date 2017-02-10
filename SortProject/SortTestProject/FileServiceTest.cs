@@ -5,6 +5,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Autofac;
 using SortProject.Interfaces;
 using SortProject.Implementations;
+using SortProject;
+using System.Diagnostics;
 
 namespace SortTestProject
 {
@@ -38,14 +40,63 @@ namespace SortTestProject
                 _fileService = scope.Resolve<IFileService>();
             }
 
+           
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void CreateSortedTextFile_GoodFile_GetNewSortedFile()
         {
-            //
-            // TODO: Add test logic here
-            //
+
+            // Arrange
+            var unsortedData = new List<string>();
+            unsortedData.Add("EFG, DEF");
+            unsortedData.Add("ABC, DEF");
+            unsortedData.Add("ABC, EFG");
+
+            var sortedData = new List<string>();
+            sortedData.Add("ABC, DEF");
+            sortedData.Add("ABC, EFG");
+            sortedData.Add("EFG, DEF");
+
+            var unsorted = new TextFile { FileName = "names", FilePath = "a/b", DataRows = unsortedData};
+
+            // Act
+            var result = _fileService.CreateSortedTextFile(unsorted);
+
+            // Assert
+            Assert.AreEqual("names-sorted", result.FileName);
+            Assert.AreEqual("a/b", result.FilePath);
+            for(var i =0; i< sortedData.Count; i++)
+            {
+                Assert.AreEqual(sortedData[i], result.DataRows[i]);
+            }
+            Assert.IsTrue(result.DataRows.Count == sortedData.Count);
+        }
+
+        [TestMethod]
+        public void CreateSortedTextFile_noFile_GetNewSortedFile()
+        {
+            // Arrange
+            var unsorted = new TextFile();
+
+            // Act
+            var result = _fileService.CreateSortedTextFile(unsorted);
+
+            // Assert
+            Assert.AreEqual(unsorted, result);
+        }
+
+        [TestMethod]
+        public void CreateSortedTextFile_noFileName_GetNewSortedFile()
+        {
+            // Arrange
+            var unsorted = new TextFile { FileName="names", DataRows = new List<string>()};
+
+            // Act
+            var result = _fileService.CreateSortedTextFile(unsorted);
+
+            // Assert
+            Assert.IsTrue(result.FilePath == null);
         }
     }
 }

@@ -14,6 +14,11 @@ namespace SortProject.Implementations
         const int LASTNAME_SECTION = 0;
         const int FIRSTNAME_SECTION = 1;
 
+        /// <summary>
+        /// Split fullname
+        /// </summary>
+        /// <param name="name"> lastName, firstName</param>
+        /// <returns>lastName and firstName</returns>
         public string[] SplitLastNameFirstName(string name)
         {
             var lastNameFirstName = name.Trim().Split(',');
@@ -24,6 +29,11 @@ namespace SortProject.Implementations
             return lastNameFirstName;
         }
 
+        /// <summary>
+        /// Check name contains letters & allow space
+        /// </summary>
+        /// <param name="name">part of name</param>
+        /// <returns>Is match</returns>
         public bool IsValidName(string[] name)
         {
             if(name == null)
@@ -42,6 +52,11 @@ namespace SortProject.Implementations
             return true;
         }
 
+        /// <summary>
+        /// Create fullname
+        /// </summary>
+        /// <param name="lastNameFirstName">[lastName, firstname]</param>
+        /// <returns>lastName, firstName</returns>
         public Name CreateName(string[] lastNameFirstName)
         {
             if(lastNameFirstName.Length != NAME_SECTIONS)
@@ -51,6 +66,11 @@ namespace SortProject.Implementations
             return new Name(lastNameFirstName[LASTNAME_SECTION].Trim(), lastNameFirstName[FIRSTNAME_SECTION].Trim());
         }
 
+        /// <summary>
+        /// Add valid name to name list
+        /// </summary>
+        /// <param name="lines">names</param>
+        /// <returns>name list</returns>
         public List<Name> CreateNameList(List<string> lines)
         {
             var nameList = new List<Name>();
@@ -66,6 +86,11 @@ namespace SortProject.Implementations
             return nameList;
         }
 
+        /// <summary>
+        /// Sort names by lastName then firstName
+        /// </summary>
+        /// <param name="nameList">name list</param>
+        /// <returns>sorted name list</returns>
         public List<Name> SortedNameList(List<Name> nameList)
         {
             return nameList.OrderBy(n => n.LastName).ThenBy(n => n.FirstName).ToList();

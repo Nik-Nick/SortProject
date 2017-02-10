@@ -15,26 +15,19 @@ namespace SortTestProject
     {
         private IContainer Container {get; set;}
 
-        private IOutput _output { get; set; }
-
         private INameService _nameService { get; set; }
 
-        private IFileService _fileService { get; set; }
 
         [TestInitialize]
         public void Initialize()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<Output>().As<IOutput>();
             builder.RegisterType<NameService>().As<INameService>();
-            builder.RegisterType<FileService>().As<IFileService>();
             Container = builder.Build();
 
             using(var scope = Container.BeginLifetimeScope())
             {
-                _output = scope.Resolve<IOutput>();
                 _nameService = scope.Resolve<INameService>();
-                _fileService = scope.Resolve<IFileService>();
             }
 
         }
@@ -259,12 +252,15 @@ namespace SortTestProject
         {
             //Arrange
             var nameList = new List<Name>();
-            
             nameList.Add( new Name("KENT", "MADISON"));
             nameList.Add( new Name("SMITH", "ANDREW"));
             nameList.Add( new Name("BAKER", "THEODORE"));
             nameList.Add(new Name("BAKER", "ROGER"));
-            var expected = nameList.OrderBy(x => x.LastName).ThenBy(x => x.FirstName).ToList();
+            var expected = new List<Name>();
+            expected.Add(new Name("BAKER", "ROGER"));
+            expected.Add(new Name("BAKER", "THEODORE"));
+            expected.Add(new Name("KENT", "MADISON"));
+            expected.Add(new Name("SMITH", "ANDREW"));
 
             // Act
             var result = _nameService.SortedNameList(nameList);
