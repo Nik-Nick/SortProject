@@ -1,12 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Autofac;
 using SortProject.Interfaces;
 using SortProject.Implementations;
 using SortProject;
-using System.Diagnostics;
 
 namespace SortTestProject
 {
