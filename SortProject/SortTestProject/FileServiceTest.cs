@@ -4,6 +4,7 @@ using Autofac;
 using SortProject.Interfaces;
 using SortProject.Implementations;
 using SortProject;
+using NSubstitute;
 
 namespace SortTestProject
 {
@@ -36,7 +37,6 @@ namespace SortTestProject
                 _nameService = scope.Resolve<INameService>();
                 _fileService = scope.Resolve<IFileService>();
             }
-
            
         }
 
@@ -45,20 +45,35 @@ namespace SortTestProject
         {
 
             // Arrange
-            var unsortedData = new List<string>();
-            unsortedData.Add("EFG, DEF");
-            unsortedData.Add("ABC, DEF");
-            unsortedData.Add("ABC, EFG");
+            //var unsortedData = new List<string>();
+            //unsortedData.Add("EFG, DEF");
+            //unsortedData.Add("ABC, DEF");
+            //unsortedData.Add("ABC, EFG");
 
             var sortedData = new List<string>();
             sortedData.Add("ABC, DEF");
             sortedData.Add("ABC, EFG");
             sortedData.Add("EFG, DEF");
 
-            var unsorted = new TextFile { FileName = "names", FilePath = "a/b", DataRows = unsortedData};
+            var sortedNames = new List<Name>
+            {
+                new Name(lastName: "ABC", firstName: "DEF"),
+                new Name(lastName: "ABC", firstName: "EFG"),
+                new Name(lastName: "EFG", firstName: "DEF"),
+            };
+
+
+            var unsorted = new TextFile { FileName = "names", FilePath = "a/b", DataRows = new List<string>() };
+
+            //set any function call SortedNameList to return only this value;
+            var nameSubsititue = Substitute.For<INameService>();
+            nameSubsititue.SortedNameList(Arg.Any<List<Name>>()).Returns(sortedNames);
+
+            var fileService = new FileService(_output, nameSubsititue);
 
             // Act
-            var result = _fileService.CreateSortedTextFile(unsorted);
+            //var result = _fileService.CreateSortedTextFile(unsorted);
+            var result = fileService.CreateSortedTextFile(unsorted);
 
             // Assert
             Assert.AreEqual("names-sorted", result.FileName);

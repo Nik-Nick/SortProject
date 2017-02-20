@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using SortProject.Implementations;
+using SortProject.Interfaces;
+using System;
 
 namespace SortProject
 {
@@ -9,11 +12,23 @@ namespace SortProject
     /// </summary>
     public class Program
     {
+        private static IContainer Container { get; set; }
+
         static void Main(string[] args)
         {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<Output>().As<IOutput>();
+            builder.RegisterType<NameService>().As<INameService>();
+            builder.RegisterType<FileService>().As<IFileService>();
+            builder.RegisterType<SortedNameApplication>().As<ISortedNameApplication>();
 
-            var app = new SortedNameApplication();
-            app.Excecute();
+            Container = builder.Build();
+
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                var app = new SortedNameApplication(scope.Resolve<IOutput>(), scope.Resolve<INameService>(), scope.Resolve<IFileService>());
+                app.Excecute();
+            }
 
             Console.ReadKey();
         }

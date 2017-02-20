@@ -50,6 +50,7 @@
     <Compile Include="Implementations\Output.cs" />
     <Compile Include="Interfaces\INameService.cs" />
     <Compile Include="Interfaces\IOutput.cs" />
+    <Compile Include="Interfaces\ISortedNameApplication.cs" />
     <Compile Include="TextFile.cs" />
     <Compile Include="Implementations\FileService.cs" />
     <Compile Include="Interfaces\IFileService.cs" />
@@ -57,7 +58,7 @@
     <Compile Include="Name.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SortedNameApplication.cs" />
+    <Compile Include="Implementations\SortedNameApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

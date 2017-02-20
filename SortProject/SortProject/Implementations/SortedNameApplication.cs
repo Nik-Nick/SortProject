@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SortProject
 {
-    public class SortedNameApplication
+    public class SortedNameApplication : ISortedNameApplication
     {
 
         private IOutput _output { get; set; }
@@ -18,22 +18,11 @@ namespace SortProject
 
         private IFileService _fileService { get; set; }
 
-
-        private static IContainer Container { get; set; }
-        public SortedNameApplication()
+        public SortedNameApplication(IOutput output, INameService nameService, IFileService fileService)
         {
-            var builder = new ContainerBuilder();
-            builder.RegisterType<Output>().As<IOutput>();
-            builder.RegisterType<NameService>().As<INameService>();
-            builder.RegisterType<FileService>().As<IFileService>();
-            Container = builder.Build();
-
-            using (var scope = Container.BeginLifetimeScope())
-            {
-                _output = scope.Resolve<IOutput>();
-                _nameService = scope.Resolve<INameService>();
-                _fileService = scope.Resolve<IFileService>();
-            }
+            _output = output;
+            _nameService = nameService;
+            _fileService = fileService;
         }
 
 
